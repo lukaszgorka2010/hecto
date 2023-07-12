@@ -59,8 +59,8 @@ impl Editor {
             | Key::Right
             | Key::Home
             | Key::End
-            | Key::PageUp
-            | Key::PageDown => self.move_cursor(pressed_key),
+            | Key::Ctrl('t')
+            | Key::Ctrl('b') => self.move_cursor(pressed_key),
             _ => (),
         }
         Ok(())
@@ -85,8 +85,8 @@ impl Editor {
             },
             Key::Home => x = 0,
             Key::End => x = width,
-            Key::PageUp => y = 0,
-            Key::PageDown => y = height,
+            Key::Ctrl('t') => y = 0,
+            Key::Ctrl('b') => y = height,
             _ => (),
         }
         self.cursor_position = Position { x, y }
